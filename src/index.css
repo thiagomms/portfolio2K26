@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tamanho dos ícones de contato */
+.contact-icon {
+  font-size: 2.5rem !important;
+}
+@media (min-width: 640px) {
+  .contact-icon {
+    font-size: 3rem !important;
+  }
+}
+
+/* Reduz repaint ao rolar: imagens lazy não bloqueiam */
+img[loading="lazy"] {
+  content-visibility: auto;
+}
