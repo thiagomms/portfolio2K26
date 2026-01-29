@@ -268,7 +268,7 @@ function App() {
             <div className="relative">
               <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] bg-blue-500 overflow-hidden border-4 border-blue-600">
                 <img
-                  src="perfil.png"
+                  src="/perfil.png"
                   alt="Profile"
                   className="w-full h-full object-cover opacity-90"
                   decoding="async"
