@@ -10,16 +10,17 @@ const gifs: Record<string, string> = Object.fromEntries(
   })
 );
 
-const formacaoAcademica = [
-  { title: 'Ensino Médio', details: 'Setor Leste - College', dates: '2016 - 2018' },
-  { title: 'Sistemas de Informação', details: 'FACNET Anhanguera - Graduação', dates: '2019 - 2022' }
+const formacaoAcademica = [  
+  { title: 'Sistemas de Informação', details: 'FACNET Anhanguera - Graduação', dates: '2019 - 2022' },  
 ];
 
-const experiencias = [
-  { title: 'Estagiário de T.I', details: 'Clínica OrthoLife - Brasília', dates: 'Set de 2019 - Nov de 2019' },
-  { title: 'Estagiário de Desenvolvimento Front-End', details: 'Banco do Brasil - Brasília', dates: 'Nov de 2019 - Mar de 2020' },
+const experiencias = [  
+  { title: 'Analista de Suporte & Desenvolvimento - Remoto', details: 'NeuroSaber - Londrina - Remoto', dates: 'Mar de 2025 - atualmente' },
+  { title: 'Auxiliar de TI', details: 'Aser Security - Remoto', dates: 'Mar de 2023 - Mar de 2025' },  
   { title: 'Service Desk', details: 'DATAPREV - Remoto', dates: 'Jun de 2021 - Dez de 2022' },
-  { title: 'Estagiário de Desenvolvimento Web', details: 'Universidade de Brasília - Híbrida', dates: 'Set de 2021 - Dez de 2022' }
+  { title: 'Estagiário de Desenvolvimento Web', details: 'Universidade de Brasília - Remoto', dates: 'Set de 2021 - Dez de 2022' }, 
+  { title: 'Estagiário de Desenvolvimento Front-End', details: 'Banco do Brasil - Brasília', dates: 'Nov de 2019 - Mar de 2020' }, 
+  { title: 'Estagiário de T.I', details: 'Clínica OrthoLife - Brasília', dates: 'Set de 2019 - Nov de 2019' }
 ];
 
 function App() {
@@ -333,6 +334,57 @@ function App() {
         </div>
       </section>
 
+      <section id="skills" className="min-h-0 flex items-center justify-center px-4 sm:px-6 py-16 sm:py-20">
+        <div className="max-w-6xl w-full">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 p-6 sm:p-8 rounded-2xl sm:rounded-3xl">
+              <div className="flex items-center gap-3 mb-6">
+                <Monitor className="w-5 h-5 sm:w-6 sm:h-6 text-red-400" />
+                <h3 className="text-lg sm:text-xl font-bold text-white">Backend developer</h3>
+              </div>
+              <div className="space-y-5 sm:space-y-6">
+                {backendSkills.map((skill, index) => (
+                  <div key={index}>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm sm:text-base text-gray-300">{skill.name}</span>
+                      <span className="text-sm sm:text-base text-white font-bold">{skill.level}%</span>
+                    </div>
+                    <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-gray-500 to-gray-400 transition-all duration-1000"
+                        style={{ width: `${skill.level}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 p-6 sm:p-8 rounded-2xl sm:rounded-3xl">
+              <div className="flex items-center gap-3 mb-6">
+                <Code className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400" />
+                <h3 className="text-lg sm:text-xl font-bold text-white">Front end developer</h3>
+              </div>
+              <div className="space-y-5 sm:space-y-6">
+                {frontendSkills.map((skill, index) => (
+                  <div key={index}>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm sm:text-base text-gray-300">{skill.name}</span>
+                      <span className="text-sm sm:text-base text-white font-bold">{skill.level}%</span>
+                    </div>
+                    <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-gray-500 to-gray-400 transition-all duration-1000"
+                        style={{ width: `${skill.level}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="resumo" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-16 sm:py-20">
         <div className="max-w-5xl w-full">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8 sm:mb-10 text-center">Resumo</h2>
@@ -367,7 +419,7 @@ function App() {
           <div className="relative grid grid-cols-[1fr_auto_1fr] gap-x-0 gap-y-6 sm:gap-y-8 max-w-4xl mx-auto">
             <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-sky-400/80 -translate-x-1/2 pointer-events-none" />
 
-            {[0, 1, 2, 3].map((i) => (
+            {Array.from({ length: Math.max(formacaoAcademica.length, experiencias.length) }, (_, i) => i).map((i) => (
               <div key={i} className="contents">
                 {/* Linha esquerda: card formação (só nas 2 primeiras linhas) */}
                 <div className="flex justify-end pr-4 sm:pr-6 min-h-[80px]">
