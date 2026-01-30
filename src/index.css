@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Evita margem branca no rodapé no iPhone: fundo escuro em toda a página */
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  /* Safari iOS: preenche altura disponível e evita espaço branco abaixo */
+  min-height: -webkit-fill-available;
+  background: linear-gradient(to bottom right, #111827, #1f2937, #111827);
+}
+#root {
+  min-height: 100%;
+}
+
 /* Tamanho dos ícones de contato */
 .contact-icon {
   font-size: 2.5rem !important;
