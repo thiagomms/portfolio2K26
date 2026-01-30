@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Monitor, Code, Database, Layers, GraduationCap, Briefcase, Star, Menu, X, Quote, Calendar } from 'lucide-react';
 
 // GIFs: eager para ter URLs no mount; uso de loading="lazy" nas <img> evita download até perto do viewport
@@ -28,6 +28,22 @@ function App() {
   const [activeSection, setActiveSection] = useState('inicio');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [timelineTab, setTimelineTab] = useState<'formacao' | 'experiencias'>('experiencias');
+  const [hoveredProjectIndex, setHoveredProjectIndex] = useState<number | null>(null);
+  const [previewReady, setPreviewReady] = useState<Record<number, boolean>>({});
+  const canvasRefs = useRef<(HTMLCanvasElement | null)[]>([]);
+  const loaderImgRefs = useRef<(HTMLImageElement | null)[]>([]);
+
+  const drawFirstFrame = (index: number) => {
+    const img = loaderImgRefs.current[index];
+    const canvas = canvasRefs.current[index];
+    if (!img || !canvas || !img.complete) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    ctx.drawImage(img, 0, 0);
+    setPreviewReady((prev) => ({ ...prev, [index]: true }));
+  };
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -39,26 +55,26 @@ function App() {
   const services = [
     {
       icon: Monitor,
-      title: 'Speed & Optimization',
-      description: 'Improving load times, SEO and overall user experience through code and asset optimization.',
+      title: 'Velocidade e Otimização',
+      description: 'Melhorando a velocidade de carregamento, SEO e experiência do usuário através de otimização de código e ativos.',
       color: 'from-yellow-400 to-orange-400'
     },
     {
       icon: Code,
-      title: 'Full-Stack Solutions',
-      description: 'End-to-end development from frontend UI to backend infrastructure and deployment.',
+      title: 'Soluções Full-Stack',
+      description: 'Desenvolvimento end-to-end do frontend UI ao backend e deployment.',
       color: 'from-green-400 to-emerald-400'
     },
     {
       icon: Database,
-      title: 'Backend Development',
-      description: 'Developing secure and scalable server-side logic, APIs, and database integration.',
+      title: 'Desenvolvimento Backend',
+      description: 'Desenvolvendo lógica segura e escalável do lado do servidor, APIs e integração de banco de dados.',
       color: 'from-pink-400 to-rose-400'
     },
     {
       icon: Layers,
-      title: 'Frontend Development',
-      description: 'Building responsive, user-friendly web interfaces using modern frameworks like React or Vue.',
+      title: 'Desenvolvimento Frontend',
+      description: 'Criando interfaces web responsivas e amigáveis usando frameworks modernos como React ou Vue.',
       color: 'from-cyan-400 to-blue-400'
     }
   ];
@@ -233,7 +249,7 @@ function App() {
           <div className="space-y-6 sm:space-y-8 order-2 md:order-1">
             <div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-                Thiago Mateus | <span className="block sm:inline">Full Stack Dev</span>
+                Thiago Mateus | <span className="block sm:inline">Dev Full Stack</span>
               </h2>
               <div className="space-y-2 text-sm sm:text-base text-gray-300">                               
                 <p><span className="text-gray-500">●</span> <span className="font-medium">Cidade:</span> Brasília, Brasil</p>
@@ -454,7 +470,7 @@ function App() {
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8 text-center">My portfolio</h2>
 
           <div className="flex items-center justify-center gap-2 sm:gap-4 lg:gap-6 mb-6 sm:mb-8 overflow-x-auto pb-2">
-            {['all', 'website', 'app', 'article', 'weblog'].map((tab) => (
+            {['all', 'website', 'app', '', ''].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -474,17 +490,41 @@ function App() {
               <div
                 key={index}
                 className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gray-800 border border-gray-700 hover:border-gray-600 transition-all duration-300"
+                onMouseEnter={() => setHoveredProjectIndex(index)}
+                onMouseLeave={() => setHoveredProjectIndex(null)}
               >
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden relative bg-gray-700/80">
+                  {/* Imagem oculta só para extrair o primeiro frame */}
                   <img
+                    ref={(el) => { loaderImgRefs.current[index] = el ?? null; }}
                     src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
-                    decoding="async"
+                    alt=""
+                    className="hidden"
+                    onLoad={() => drawFirstFrame(index)}
                   />
+                  {/* Canvas sempre no DOM para o ref existir quando a img carregar; preview estático (primeiro frame) - não anima */}
+                  <canvas
+                    ref={(el) => { canvasRefs.current[index] = el ?? null; }}
+                    className={`absolute inset-0 w-full h-full object-cover ${previewReady[index] && hoveredProjectIndex !== index ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                    style={{ objectFit: 'cover' }}
+                  />
+                  {/* Placeholder até o primeiro frame carregar */}
+                  {!previewReady[index] && hoveredProjectIndex !== index && (
+                    <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-sm sm:text-base text-center px-4">
+                      Carregando preview…
+                    </div>
+                  )}
+                  {/* GIF só no hover - anima ao passar o mouse */}
+                  {hoveredProjectIndex === index && (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      decoding="async"
+                    />
+                  )}
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6 pointer-events-none">
                   <h3 className="text-white font-bold text-base sm:text-lg">{project.title}</h3>
                 </div>
               </div>
