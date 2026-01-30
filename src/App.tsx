@@ -116,37 +116,44 @@ function App() {
     {
       title: 'FullStack CRUD',
       category: 'website',
-      image: gifs['fullstack-crud-gif2'] ?? ''
+      image: gifs['fullstack-crud-gif2'] ?? '',
+      description: 'Esse é um projeto FullStack CRUD que fiz usando Node, React.js e MySQL.',
+      github: 'https://github.com/thiagomms/crud-FullStack-react'      
     },
     {
       title: 'Controle Financeiro',
       category: 'website',
-      image: gifs['controle-financeiro-gif3'] ?? ''
+      image: gifs['controle-financeiro-gif3'] ?? '',
+      description: 'Esse é um projeto que fiz usando ReactJS.',
+      github: 'https://github.com/thiagomms/controle-financeiro'
     },
     {
       title: 'Vue - burguer',
       category: 'website',
-      image: gifs['vue-burguer']
+      image: gifs['vue-burguer'],
+      description: 'Esse é um projeto que fiz usando VueJS.',
+      github: 'https://github.com/thiagomms/projeto-burguer'
     },
     {
-      title: 'Blog Platform',
+      title: 'React Styled Components',
       category: 'website',
-      image: gifs['gif5']
+      image: gifs['gif5'],
+      description: 'Esse é um projeto que fiz usando ReactJS e Styled Components.',
+      github: 'https://github.com/thiagomms/app-bank-react'
     },
     {
-      title: 'Blog Platform',
+      title: 'CRUD React',
       category: 'website',
-      image: gifs['gif6']
-    },
+      image: gifs['gif6'],
+      description: 'Esse é um projeto que fiz usando React. JSON Server | Node.js | NPM.',
+      github: 'https://github.com/thiagomms/CRUD-React'
+    },    
     {
-      title: 'Blog Platform',
-      category: 'website',
-      image: gifs['vue-burguer']
-    },
-    {
-      title: 'Social Media Dashboard',
+      title: 'App Mobile',
       category: 'app',
-      image: gifs['gif7']
+      image: gifs['gif7'],
+      description: 'Esse é um projeto que fiz usando Android Studio | Java.',
+      github: 'https://github.com/thiagomms/auladevmobile'
     }
   ];
 
@@ -526,10 +533,8 @@ function App() {
                       decoding="async"
                     />
                   )}
-                  {/* Overlay só na área da imagem, para não esconder título/descrição/botões abaixo */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6 pointer-events-none">
-                    <h3 className="text-white font-bold text-base sm:text-lg">{project.title}</h3>
-                  </div>
+                  {/* Efeito degradê só na área da imagem ao passar o mouse (título fica só embaixo) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </div>
                 <div className="p-4 sm:p-5">
                   <h3 className="text-white font-bold text-base sm:text-lg mb-1">{project.title}</h3>
