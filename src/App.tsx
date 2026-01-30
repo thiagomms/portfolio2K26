@@ -64,46 +64,29 @@ function App() {
   ];
 
   const frontendSkills = [
-    { name: 'React', level: 95 },
-    { name: 'JavaScript', level: 90 },
-    { name: 'TypeScript', level: 85 },
-    { name: 'HTML / CSS', level: 92 }
+    { name: 'React', level: 75 },
+    { name: 'JavaScript', level: 50 },
+    { name: 'TypeScript', level: 65 },
+    { name: 'HTML / CSS', level: 92 },
+    { name: 'Git', level: 60 },
+    { name: 'Postman', level: 70 },
+    { name: 'Webhooks', level: 80 },
+    { name: 'GitBook', level: 89 },
+    { name: 'Bolt.new', level: 99 }
   ];
 
   const backendSkills = [
-    { name: 'Node.js', level: 88 },
-    { name: 'PostgreSQL', level: 82 },
-    { name: 'REST APIs', level: 90 },
-    { name: 'Supabase', level: 85 }
+    { name: 'Node.js', level: 66 },
+    { name: 'PostgreSQL', level: 52 },
+    { name: 'REST APIs', level: 55 },
+    { name: 'Supabase', level: 85 },
+    { name: 'Python', level: 68 },
+    { name: 'N8N', level: 60 },
+    { name: 'Streamlit', level: 69 },    
+    { name: 'Cursor AI', level: 99 },
+    { name: 'Dribbble', level: 99 }
   ];
 
-  const resume = [
-    {
-      icon: GraduationCap,
-      title: 'Sistemas de Informação',
-      description: 'FACNET Anhanguera - Graduação'
-    },
-    {
-      icon: Briefcase,
-      title: 'Frontend Developer – [Company Name]',
-      description: 'Worked as a frontend developer building dynamic web interfaces using React and CSS frameworks. Collaborated closely with designers to turn mockups into pixel-perfect user experiences.'
-    },
-    {
-      icon: Briefcase,
-      title: 'Backend Development Bootcamp',
-      description: 'After gaining experience in frontend, enrolled in a backend-focused program covering Node.js, Express, MongoDB, and API design. Built several full-featured server-side applications and worked with databases, authentication, and RESTful services.'
-    },
-    {
-      icon: Briefcase,
-      title: 'Became a Full-Stack Developer',
-      description: 'After months of frontend and back-end experience, made the leap from frontend to full-stack development. This transition allowed for deeper technical involvement and broader problem-solving.'
-    },
-    {
-      icon: Briefcase,
-      title: 'Estagiário de T.I',
-      description: 'Clinica OrthoLife - Brasília'
-    }
-  ];
 
   const projects = [
     {
@@ -154,33 +137,42 @@ function App() {
 
   const testimonials = [
     {
-      name: 'Lucas Rodrigues',
-      role: 'Coordenador NOC',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop',
+      name: 'Thiago Reis',
+      role: 'Líder - Supervisor de trabalho',
+      image: '/depoiments/thiago%20reis.jpg',
+      linkedin: 'https://www.linkedin.com/in/thiagoafrika',
       rating: 5,
-      text: 'Trabalhei anos com este cara, ele sabe se virar quer onde esteja, ele sempre dá um jeito de resolver qualquer âmbito diante a seu favor.'
+      text: 'O Thiago Mateus foi um dos profissionais mais completos com quem já tive a oportunidade de trabalhar. Sempre buscou soluções inovadoras para otimizar as demandas e SLAs do dia a dia, demonstrando proatividade e pensamento estratégico. Tive o enorme prazer de liderá-lo e pude perceber o quanto ele é o tipo de profissional que toda equipe de TI precisa: comprometido, prestativo, gentil e altamente comunicativo. Foi realmente uma honra trabalhar com ele.'
+    },
+    {
+      name: 'Lucas Rodrigues',
+      role: 'Coordenador NOC - Supervisor de trabalho',
+      image: '/depoiments/lucas.jfif',
+      linkedin: 'https://www.linkedin.com/in/lucas-rodrigues-lins',
+      rating: 5,
+      text: 'Um excelente profissional, possuí alto desempenho e uma alta gama de aprendizagem, um trabalhador bem versátil e que se encaixa em qualquer ambiente de trabalho, possuí um excelente domínio na área de MySQL, React, PHP, Angular e VUE.js. Posso afirmar que possuí uma ótima compreensão em inglês e um bom domínio nas atividades em que são passadas diariamente e entrega as atividades finalizadas bem antes do prazo estipulado.Trabalhei anos com este cara, ele sabe se virar quer onde esteja, ele sempre dá um jeito de resolver qualquer âmbito diante a seu favor.'
     },
     {
       name: 'Erick Adriano',
       role: 'Analista de Redes',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop',
+      image: '/depoiments/erick.jfif',
       rating: 4,
       text: 'Trabalhei pouco tempo com este rapaz, mas o pouco que eu sei dele, em qualquer maré que ele entra, ele consegue sair dela. Tenho uma boa impressão, realizou serviços com toda a qualidade possível e atenção e suporte 24 horas por dia.'
     },
     {
-      name: 'Maria Silva',
-      role: 'Product Manager',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop',
+      name: 'JP Du',
+      role: 'Colega de trabalho',
+      image: '/depoiments/jp%20du.jfif',
       rating: 5,
       text: 'Excelente profissional, sempre entrega projetos no prazo e com qualidade excepcional. Sua capacidade de resolver problemas complexos é impressionante.'
     },
     {
-      name: 'João Santos',
-      role: 'Tech Lead',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop',
+      name: 'Du',
+      role: 'Colega de trabalho',
+      image: '/depoiments/du.jfif',
       rating: 5,
       text: 'Um desenvolvedor full-stack completo. Domina tanto frontend quanto backend com maestria. Recomendo fortemente para qualquer projeto desafiador.'
-    }
+    }    
   ];
 
   return (
@@ -236,7 +228,7 @@ function App() {
         )}
       </nav>
 
-      <section id="home" className="min-h-screen flex items-center justify-center pt-24 sm:pt-20 px-4 sm:px-6">
+      <section id="home" className="min-h-[85vh] flex items-center justify-center pt-24 sm:pt-20 pb-12 sm:pb-16 px-4 sm:px-6">
         <div className="max-w-7xl w-full grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           <div className="space-y-6 sm:space-y-8 order-2 md:order-1">
             <div>
@@ -287,7 +279,7 @@ function App() {
         </div>
       </section>
 
-      <section id="sobre" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-16 sm:py-20">
+      <section id="sobre" className="flex items-center justify-center px-4 sm:px-6 py-10 sm:py-14">
         <div className="max-w-6xl w-full">
           <div className="grid md:grid-cols-2 gap-6 sm:gap-10 items-start">
             {/* Card esquerda: Sobre / Minha Carreira + placeholder 3D + texto */}
@@ -310,17 +302,14 @@ function App() {
               <h2 className="text-2xl sm:text-3xl font-bold text-white">Sobre mim</h2>
               <div className="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Com <strong className="text-white">Bacharel em Sistemas de Informação</strong>, e planos para se iniciar a <strong className="text-white">Pós-Graduação em Desenvolvimento Front-End</strong>. Desenvolvi projetos pessoais e acadêmicos que me deram autodeterminação e resolução de diversos erros, envolvendo equipes com recurso a metodologias ágeis.
+                  Formado em <strong className="text-white">Sistemas de Informação</strong>, tenho experiência prática com desenvolvimento Front-End, suporte técnico, automações e integração de APIs. Atuo em sistemas em <strong className="text-white">React + Supabase</strong>, automações com <strong className="text-white">Python</strong> (pandas, Streamlit) e N8N, além da criação de dashboards e documentações técnicas via GitBook.
                 </p>
                 <p>
-                  Adquiri conhecimento sobre <strong className="text-white">React.js</strong>, <strong className="text-white">Vue.js</strong>, entre outros frameworks e bancos de dados. Aprimorando diariamente minhas habilidades em minha área de interesse, eu constantemente me esforço para me desenvolver em meu campo de trabalho, melhorando minhas habilidades.
-                </p>
-                <p>
-                  Estou à procura de oportunidades para avançar na minha carreira, seja trabalhando em grandes equipes e/ou com diversos projetos.
+                  Domínio em Git, Postman, Webhooks, bancos de dados (MySQL, Firebase, Supabase) e depuração de código em Node.js, React e TypeScript. Trabalho bem em equipe, aplicando metodologias ágeis e buscando melhoria contínua.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                {['React.js', 'Vue.js', 'TypeScript', 'Node.js', 'PostgreSQL'].map((skill) => (
+                {['React.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Python', 'N8N', 'Streamlit', 'GitBook'].map((skill) => (
                   <span
                     key={skill}
                     className="px-4 py-2 rounded-full border border-gray-600 bg-gray-800/80 text-white text-sm font-medium"
@@ -334,63 +323,66 @@ function App() {
         </div>
       </section>
 
-      <section id="skills" className="min-h-0 flex items-center justify-center px-4 sm:px-6 py-16 sm:py-20">
+      <section id="skills" className="flex items-center justify-center px-4 sm:px-6 py-10 sm:py-14">
         <div className="max-w-6xl w-full">
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 p-6 sm:p-8 rounded-2xl sm:rounded-3xl">
-              <div className="flex items-center gap-3 mb-6">
-                <Monitor className="w-5 h-5 sm:w-6 sm:h-6 text-red-400" />
-                <h3 className="text-lg sm:text-xl font-bold text-white">Backend developer</h3>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8 text-center">Skills Developer</h2>
+          <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 p-6 sm:p-8 rounded-2xl sm:rounded-3xl">
+            <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <Monitor className="w-5 h-5 sm:w-6 sm:h-6 text-red-400" />
+                  <h3 className="text-lg sm:text-xl font-bold text-white">Skill Dev1</h3>
+                </div>
+                <div className="space-y-5 sm:space-y-6">
+                  {backendSkills.map((skill, index) => (
+                    <div key={index}>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm sm:text-base text-gray-300">{skill.name}</span>
+                        <span className="text-sm sm:text-base text-white font-bold">{skill.level}%</span>
+                      </div>
+                      <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-gradient-to-r from-gray-500 to-gray-400 transition-all duration-1000"
+                          style={{ width: `${skill.level}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="space-y-5 sm:space-y-6">
-                {backendSkills.map((skill, index) => (
-                  <div key={index}>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm sm:text-base text-gray-300">{skill.name}</span>
-                      <span className="text-sm sm:text-base text-white font-bold">{skill.level}%</span>
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <Code className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400" />
+                  <h3 className="text-lg sm:text-xl font-bold text-white">Skill Dev2</h3>
+                </div>
+                <div className="space-y-5 sm:space-y-6">
+                  {frontendSkills.map((skill, index) => (
+                    <div key={index}>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm sm:text-base text-gray-300">{skill.name}</span>
+                        <span className="text-sm sm:text-base text-white font-bold">{skill.level}%</span>
+                      </div>
+                      <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-gradient-to-r from-gray-500 to-gray-400 transition-all duration-1000"
+                          style={{ width: `${skill.level}%` }}
+                        />
+                      </div>
                     </div>
-                    <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-gray-500 to-gray-400 transition-all duration-1000"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 p-6 sm:p-8 rounded-2xl sm:rounded-3xl">
-              <div className="flex items-center gap-3 mb-6">
-                <Code className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400" />
-                <h3 className="text-lg sm:text-xl font-bold text-white">Front end developer</h3>
-              </div>
-              <div className="space-y-5 sm:space-y-6">
-                {frontendSkills.map((skill, index) => (
-                  <div key={index}>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm sm:text-base text-gray-300">{skill.name}</span>
-                      <span className="text-sm sm:text-base text-white font-bold">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-gray-500 to-gray-400 transition-all duration-1000"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="resumo" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-16 sm:py-20">
+      <section id="resumo" className="flex items-center justify-center px-4 sm:px-6 py-10 sm:py-14">
         <div className="max-w-5xl w-full">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8 sm:mb-10 text-center">Resumo</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8 text-center">Resumo</h2>
 
           {/* Abas: Formação acadêmica | Experiências (destaque visual) */}
-          <div className="flex justify-center gap-2 sm:gap-4 mb-10 sm:mb-12">
+          <div className="flex justify-center gap-2 sm:gap-4 mb-6 sm:mb-8">
             <button
               onClick={() => setTimelineTab('formacao')}
               className={`flex items-center gap-2 px-4 sm:px-6 py-3 rounded-lg transition-colors text-sm sm:text-base ${
@@ -457,11 +449,11 @@ function App() {
         </div>
       </section>
 
-      <section id="portfolio" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-16 sm:py-20">
+      <section id="portfolio" className="flex items-center justify-center px-4 sm:px-6 py-10 sm:py-14">
         <div className="max-w-6xl w-full">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8 text-center">My portfolio</h2>
 
-          <div className="flex items-center justify-center gap-2 sm:gap-4 lg:gap-6 mb-8 sm:mb-12 overflow-x-auto pb-2">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 lg:gap-6 mb-6 sm:mb-8 overflow-x-auto pb-2">
             {['all', 'website', 'app', 'article', 'weblog'].map((tab) => (
               <button
                 key={tab}
@@ -501,9 +493,9 @@ function App() {
         </div>
       </section>
 
-      <section id="serviços" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-16 sm:py-20">
+      <section id="serviços" className="flex items-center justify-center px-4 sm:px-6 py-10 sm:py-14">
         <div className="max-w-6xl w-full">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-10 sm:mb-16 text-center">Serviços</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8 text-center">Serviços</h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {services.map((service, index) => {
@@ -525,9 +517,9 @@ function App() {
         </div>
       </section>
 
-      <section id="depoimentos" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-16 sm:py-20">
+      <section id="depoimentos" className="flex items-center justify-center px-4 sm:px-6 py-10 sm:py-14">
         <div className="max-w-6xl w-full">
-          <div className="text-center mb-10 sm:mb-16">
+          <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">Depoimentos</h2>
             <p className="text-gray-400 text-sm sm:text-base">Meus colegas de serviços</p>
           </div>
@@ -536,8 +528,19 @@ function App() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 p-6 sm:p-8 rounded-2xl sm:rounded-3xl hover:border-gray-600 transition-all duration-300"
+                className="group relative bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 p-6 sm:p-8 rounded-2xl sm:rounded-3xl hover:border-gray-600 transition-all duration-300"
               >
+                {testimonial.linkedin && (
+                  <a
+                    href={testimonial.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-4 right-4 flex items-center gap-2 px-3 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10"
+                  >
+                    <i className="fab fa-linkedin text-base" />
+                    Ver perfil
+                  </a>
+                )}
                 <div className="flex items-start gap-4 mb-6">
                   <img
                     src={testimonial.image}
@@ -580,13 +583,13 @@ function App() {
         </div>
       </section>
 
-      <section id="contatos" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-16 sm:py-20">
+      <section id="contatos" className="flex items-center justify-center px-4 sm:px-6 py-10 sm:py-14">
         <div className="max-w-4xl w-full">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-10 sm:mb-16 text-center">Contact me</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8 text-center">Contatos</h2>
 
           <div className="flex items-center justify-center gap-4 sm:gap-6 flex-wrap">
             <a
-              href="https://github.com"
+              href="https://github.com/thiagomms"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center hover:scale-110 transition-all"
@@ -614,7 +617,7 @@ function App() {
               <i className="fas fa-paper-plane contact-icon text-gray-300" />
             </a>
             <a
-              href="tel:+556199228-3666"
+              href="https://api.whatsapp.com/send?phone=5561992283666&text=Ol%C3%A1%20Thiago%2C"
               className="flex items-center justify-center hover:scale-110 transition-all"
             >
               <i className="fab fa-whatsapp contact-icon text-gray-300" />
@@ -625,7 +628,7 @@ function App() {
 
       <footer className="bg-gray-900 border-t border-gray-800 py-6 sm:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center text-gray-500">
-          <p className="text-sm sm:text-base">2026 Portfolio. Desenvolvido com React e Tailwind CSS.</p>
+          <p className="text-sm sm:text-base">2K26 Portfolio.</p>
         </div>
       </footer>
     </div>
