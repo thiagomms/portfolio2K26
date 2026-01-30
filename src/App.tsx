@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Monitor, Code, Database, Layers, GraduationCap, Briefcase, Star, Menu, X, Quote, Calendar } from 'lucide-react';
+import { Monitor, Code, Database, Layers, GraduationCap, Briefcase, Star, Menu, X, Quote, Calendar, ArrowRight } from 'lucide-react';
 
 // GIFs: eager para ter URLs no mount; uso de loading="lazy" nas <img> evita download até perto do viewport
 const gifModules = import.meta.glob<{ default: string }>('../gif/*.gif', { eager: true });
@@ -108,7 +108,10 @@ function App() {
     {
       title: 'E-Commerce-React',
       category: 'website',
-      image: gifs['ecomerce-gif'] ?? ''
+      image: gifs['ecomerce-gif'] ?? '',
+      description: 'Projeto de e-commerce com React.js e API Fake Store.',
+      github: 'https://github.com/thiagomms/ecommerce-react',
+      demo: 'https://ecommerce-thiagomms-demo.netlify.app/'
     },
     {
       title: 'FullStack CRUD',
@@ -523,9 +526,42 @@ function App() {
                       decoding="async"
                     />
                   )}
+                  {/* Overlay só na área da imagem, para não esconder título/descrição/botões abaixo */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6 pointer-events-none">
+                    <h3 className="text-white font-bold text-base sm:text-lg">{project.title}</h3>
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6 pointer-events-none">
-                  <h3 className="text-white font-bold text-base sm:text-lg">{project.title}</h3>
+                <div className="p-4 sm:p-5">
+                  <h3 className="text-white font-bold text-base sm:text-lg mb-1">{project.title}</h3>
+                  {'description' in project && project.description && (
+                    <p className="text-gray-400 text-sm mb-3 line-clamp-2">{project.description}</p>
+                  )}
+                  {('github' in project && project.github) || ('demo' in project && project.demo) ? (
+                    <div className="flex flex-wrap gap-2">
+                      {'github' in project && project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30 text-sm font-medium transition-colors"
+                        >
+                          GitHub
+                          <ArrowRight className="w-4 h-4" />
+                        </a>
+                      )}
+                      {'demo' in project && project.demo && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30 text-sm font-medium transition-colors"
+                        >
+                          Demo
+                          <ArrowRight className="w-4 h-4" />
+                        </a>
+                      )}
+                    </div>
+                  ) : null}
                 </div>
               </div>
             ))}
